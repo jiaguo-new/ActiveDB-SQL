@@ -1,6 +1,6 @@
 #!/bin/bash
 # End-to-end reproduction script for NL2SQL Agent Harness
-# Target: 1235/1534 = 80.51% on BIRD dev
+# Target: 1230/1534 = 80.18% on BIRD dev (leak-fixed compliant version)
 #
 # Prerequisites:
 #   - GLM_API_KEY environment variable set
@@ -9,6 +9,11 @@
 #   - All model weights and candidate pools linked in runs/ and model symlinks
 #
 # Usage: bash run_all.sh [--verify-only]  (skip to verification)
+#
+# COMPLIANCE NOTE: Step 1 uses the physically k5-free clean pool
+# (merged4model_n4_clean_scored_20260805.jsonl), NOT the deprecated
+# n4_plus_k5 pool. The final output is leak-fixed (6 questions reverted
+# to merged4 base) to eliminate k5_detvg contamination.
 
 set -euo pipefail
 cd /home/dameng/project/nl2sql_harness_reproduce
@@ -29,10 +34,10 @@ echo "================================================"
 echo -e "\n[Step 0] Compliance audit..."
 python3 compliance_audit.py
 
-# ── Step 1: merged4 ORM select (base = 1068) ──
-echo -e "\n[Step 1] merged4 n8 ORM band0.05 select → 1068"
+# ── Step 1: merged4 ORM select from CLEAN pool (base = 1067) ──
+echo -e "\n[Step 1] merged4 n4 CLEAN pool ORM band0.05 select → 1067"
 python3 scripts/select_compliant_merged4.py \
-  --scored runs/merged4model_n4_plus_k5_all_scored_vllm.jsonl \
+  --scored runs/merged4model_n4_clean_scored_20260805.jsonl \
   --dev $DEV --band 0.05 --output $P/step1_merged4_orm.jsonl
 cd evaluation && python3 bird_official_eval_fast.py --dev ../$DEV --pred ../$P/step1_merged4_orm.jsonl \
   --db-root ../$DBROOT --output ../$M/step1_eval.json --workers 8; cd ..

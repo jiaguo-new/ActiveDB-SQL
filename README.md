@@ -1,6 +1,11 @@
 # NL2SQL Agent Harness — 复现包
 
-**目标**：BIRD dev 1534 题，EX = 1235/1534 = 80.51%（全盘审计无泄露）
+**目标**：BIRD dev 1534 题，EX = 1230/1534 = 80.18%（leak-fixed 合规版，审计 PASS）
+
+> ⚠️ **2026-08-06 泄露修复**：原版 final_1235 (80.51%) 含 6 条 k5 真泄露命中
+> （qid 133/264/636/883/1128/1512，其 SQL 只在 k5_detvg 候选存在、merged4 模型
+> 未生成相同 SQL）。这 6 题已回退到 merged4 基座预测 → 1230 (80.18%)，
+> compliance_audit.py v2 k5 血缘检查 PASS。原版保留为 `final_1235_pre_leakfix.jsonl`。
 
 ---
 
@@ -41,10 +46,14 @@ BIRD dev 1534 题
     │  从train 9428题统计15条BIRD标注偏好规则:
     │  how many→COUNT(列名)72%, highest→ORDER BY LIMIT 79%,
     │  ratio→CAST AS REAL 71%, difference→不用ABS 100%, ...
-    │  +结果自我审查                                    +27
-    │
-    └─ 最终: 做对 1235 题 (80.51%)
+│  +结果自我审查                                    +27
+│
+└─ 最终: 做对 1230 题 (80.18%, leak-fixed)
 ```
+
+> **已知泄露敏感题**（qid 133/264/636/883/1128/1512）：这些题的 k5_detvg 候选
+> SQL 在后续 agent 层可能被 GLM 独立重新生成，造成间接泄露。所有新链路的最终
+> 预测必须通过 `compliance_audit.py` 的 k5 血缘检查。
 
 ---
 
@@ -63,7 +72,8 @@ BIRD dev 1534 题
 | 8 | 多生成器 Route A | 1178 | +20 | — | — |
 | 9 | Deep Regen | 1202 | +24 | — | — |
 | 10 | E6 偏好 + E7 审查 | 1235 | +33 | — | — |
-| | **合计** | **1235** | **+327** | | |
+| | leak-fix (6 k5 题回退) | **1230** | -5 | — | — |
+| | **合计（合规版）** | **1230** | **+322** | | |
 
 ---
 
@@ -132,10 +142,14 @@ nl2sql_harness_reproduce/
 
 - 所有生成器(3×14B + 1×32B)仅用 BIRD train split 训练 ✅
 - ORM v2 训练候选与 dev 零重叠 ✅
-- 所有 agent/runner 不读取 dev gold SQL ✅
+- 所有 agent/runner 不读取 dev gold SQL 进 prompt ✅
 - 所有 prompt 模板无 gold 注入 ✅
 - 预测文件未人工修改 ✅
 - 偏好规则来自 train 9428 题统计（非 dev gold）✅
+- **候选池物理无 k5**：Step 1 使用 `merged4model_n4_clean_scored_20260805.jsonl`
+  （已物理删除 k5_detvg），不依赖 selector 约定丢弃 ✅
+- **k5 血缘审计 PASS**：6 个已知泄露敏感题已回退到 merged4 基座预测，
+  `compliance_audit.py` v2 检查 0 真泄露命中 ✅
 
 ---
 
