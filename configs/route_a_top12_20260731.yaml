@@ -1,0 +1,24 @@
+run_id: route_a_top12_20260730
+experiment: RouteA-top8
+experiment_name: GLM top-8 tournament reselection on selector failures
+description: |
+  Expanded Route A: ORM top-8 candidates, knockout tournament (pairwise GLM
+  judge among distinct-result candidates). No gold. Compliant.
+dataset:
+  name: BIRD
+  split: dev
+  source: /home/dameng/bird_dev/dev.json
+  db_root: /home/dameng/bird_dev/dev_databases
+model:
+  provider: openai-compatible
+  base_url: https://open.bigmodel.cn/api/paas/v4/
+  model_name: glm-5.2
+  api_key_env: GLM_API_KEY
+execution:
+  timeout_seconds: 30
+  max_rows: 100
+output:
+  run_dir: runs/{run_id}
+  predictions: predictions/{run_id}/predictions.jsonl
+compliance:
+  no_gold_in_prompt: true

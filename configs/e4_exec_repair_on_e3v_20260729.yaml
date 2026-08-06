@@ -1,0 +1,33 @@
+run_id: e4_exec_repair_on_e3v_20260729
+experiment: E4
+experiment_name: Execution Repair overlay on E3v failures
+description: |
+  For E3v-still-failure questions (exec error or empty result), feed the SQL +
+  execution feedback to GLM-5.2 for up to 2 repair rounds. Accept only if
+  repaired SQL executes ok + non-empty (no gold). Compliant.
+dataset:
+  name: BIRD
+  split: dev
+  source: /home/dameng/bird_dev/dev.json
+  db_root: /home/dameng/bird_dev/dev_databases
+model:
+  provider: openai-compatible
+  base_url: https://open.bigmodel.cn/api/paas/v4/
+  model_name: glm-5.2
+  api_key_env: GLM_API_KEY
+  temperature: 0
+  top_p: 1.0
+  max_tokens: 4096
+prompt:
+  template: prompts/e4_repair_sql.md
+execution:
+  timeout_seconds: 30
+  max_rows: 100
+agent:
+  max_repairs: 2
+output:
+  run_dir: runs/{run_id}
+  predictions: predictions/{run_id}/predictions.jsonl
+compliance:
+  no_gold_in_prompt: true
+  no_test_data: true

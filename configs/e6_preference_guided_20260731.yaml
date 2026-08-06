@@ -1,0 +1,31 @@
+run_id: e6_preference_guided_20260731
+experiment: E6
+experiment_name: Preference-guided regeneration with question analysis
+description: |
+  For failures, use GLM-5.2 to regenerate SQL with a preference-guided prompt.
+  Step 1: analyze what the question asks for (columns, aggregation, format).
+  Step 2: write SQL following BIRD annotation preferences learned from train.
+  Compliant: train-derived rules only, no dev gold.
+dataset:
+  name: BIRD
+  split: dev
+  source: /home/dameng/bird_dev/dev.json
+  db_root: /home/dameng/bird_dev/dev_databases
+model:
+  provider: openai-compatible
+  base_url: https://open.bigmodel.cn/api/paas/v4/
+  model_name: glm-5.2
+  api_key_env: GLM_API_KEY
+  temperature: 0
+  top_p: 1.0
+  max_tokens: 4096
+prompt:
+  template: prompts/e6_preference_guided.md
+execution:
+  timeout_seconds: 30
+  max_rows: 100
+output:
+  run_dir: runs/{run_id}
+  predictions: predictions/{run_id}/predictions.jsonl
+compliance:
+  no_gold_in_prompt: true

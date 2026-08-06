@@ -1,0 +1,20 @@
+run_id: e5_det_repair_20260730
+experiment: E5-det
+experiment_name: Deterministic repair (COUNT(*) + over-JOIN pruning)
+description: |
+  Rule-based deterministic repair: COUNT(*)→COUNT(entity_col with NULLs),
+  and over-JOIN pruning (remove JOINed tables not referenced in SELECT/WHERE).
+  No LLM, no gold. Compliant.
+dataset:
+  name: BIRD
+  split: dev
+  source: /home/dameng/bird_dev/dev.json
+  db_root: /home/dameng/bird_dev/dev_databases
+execution:
+  timeout_seconds: 30
+  max_rows: 100
+output:
+  run_dir: runs/{run_id}
+  predictions: predictions/{run_id}/predictions.jsonl
+compliance:
+  no_gold_in_prompt: true
