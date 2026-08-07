@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Select SQL from the COMPLIANT merged4 clean pool (all candidates are
-train-finetuned model outputs; the k5_detvg retrieval candidate has been
-physically removed from this pool) using ORM-v2 band rule + result-hash
-tie-break.
+"""Select SQL from the merged4 candidate pool using ORM-v2 band rule +
+result-hash tie-break.
 
-This produces a fully-compliant system: generator = train-finetuned models,
-selector = ORM v2 (train-only training), no dev gold anywhere.
+All candidates are from train-finetuned models. This produces a fully-compliant
+system: generator = train-finetuned models, selector = ORM v2 (train-only
+training), no dev gold anywhere.
 """
 from __future__ import annotations
 
@@ -36,8 +35,6 @@ def _rows_key(rows):
 
 
 def select(sample, band=0.1):
-    # Use ALL candidates in the clean pool (the k5_detvg candidate has been
-    # physically removed from this pool, so no manual skip is needed).
     cands = sample["candidates"]
     pool = [i for i, c in enumerate(cands) if c.get("result") is not None]
     if not pool:

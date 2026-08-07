@@ -2,7 +2,7 @@
 """Route A: GLM top-K reselection on selector-failure questions.
 
 For each question where the current chain prediction is wrong:
-  1. Load ORM-scored merged4 candidates (16, excluding k5).
+  1. Load ORM-scored candidates from the pool.
   2. Take ORM top-3 candidates (by orm_score, executable only).
   3. Execute each, collect results.
   4. If all 3 produce the same result hash -> no disagreement, skip.
@@ -116,8 +116,8 @@ def judge_top_k(args):
     db = BirdDatabase(db_id=db_id, db_root=cfg["dataset"]["db_root"],
                       timeout=cfg["execution"]["timeout_seconds"], max_rows=cfg["execution"]["max_rows"])
 
-    # candidates 1..16 (skip k5 idx0)
-    all_cands = scored_sample.get("candidates", [])[1:]
+    # load all candidates from the pool
+    all_cands = scored_sample.get("candidates", [])
     # filter executable + sort by orm_score desc
     exec_cands = [c for c in all_cands if c.get("result") is not None]
     if len(exec_cands) < 2:

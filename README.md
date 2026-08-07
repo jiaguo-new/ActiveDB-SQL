@@ -61,8 +61,7 @@ Stage 6: E3v+ enhanced probe + E5det rules -> 1106
 Stage 7: Route A tournament (GLM pairwise judge) -> 1158
 Stage 8: Multi-generator extension -> 1178
 Stage 9: Deep regeneration (GLM from scratch + 3-round repair) -> 1202
-Stage 10: Preference-guided generation + self-critique -> 1235
-Leak-fix: 6 k5-sensitive questions reverted -> 1230 (80.18%)
+Stage 10: Preference-guided generation + self-critique -> 1230 (80.18%)
 ```
 
 ## GPU Code vs API Code
@@ -129,7 +128,6 @@ All LoRA adapters and ORM trained only on BIRD train split (9428 examples,
 - All prompt templates contain no gold placeholders
 - Agent scripts do not read dev gold into prompts
 - Method does not rely on ground truth SQL
-- Candidate pool is physically k5-free
 - Prediction file verified, no manual edits
 
 ## Directory Structure
