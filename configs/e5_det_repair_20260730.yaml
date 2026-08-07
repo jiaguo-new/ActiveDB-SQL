@@ -8,8 +8,8 @@ description: |
 dataset:
   name: BIRD
   split: dev
-  source: /home/dameng/bird_dev/dev.json
-  db_root: /home/dameng/bird_dev/dev_databases
+  source: data/dev.json
+  db_root: data/dev_databases
 execution:
   timeout_seconds: 30
   max_rows: 100

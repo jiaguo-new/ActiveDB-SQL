@@ -36,7 +36,7 @@ conda activate vllm-cuda  # 或你本地的 vLLM 环境
 ### 1.2 API Key
 
 ```bash
-export GLM_API_KEY="你的智谱API密钥"
+export GLM_API_KEY="c26b30daa3414f098b59844000ebdeec.JR4gmOmgKFtCi6aV"
 ```
 
 ### 1.3 模型权重

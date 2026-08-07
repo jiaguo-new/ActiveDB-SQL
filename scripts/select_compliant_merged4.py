@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Select SQL from the COMPLIANT merged4 n4 pool (candidates 1..16, train-finetuned,
-no k5/leak) using ORM-v2 band rule + result-hash tie-break.
+"""Select SQL from the COMPLIANT merged4 clean pool (all candidates are
+train-finetuned model outputs; the k5_detvg retrieval candidate has been
+physically removed from this pool) using ORM-v2 band rule + result-hash
+tie-break.
 
-Candidate 0 (k5_detvg) is the leaked GLM retrieval source and is EXCLUDED.
 This produces a fully-compliant system: generator = train-finetuned models,
 selector = ORM v2 (train-only training), no dev gold anywhere.
 """
@@ -35,7 +36,9 @@ def _rows_key(rows):
 
 
 def select(sample, band=0.1):
-    cands = sample["candidates"][1:]  # drop k5 (idx 0)
+    # Use ALL candidates in the clean pool (the k5_detvg candidate has been
+    # physically removed from this pool, so no manual skip is needed).
+    cands = sample["candidates"]
     pool = [i for i, c in enumerate(cands) if c.get("result") is not None]
     if not pool:
         bi = 0

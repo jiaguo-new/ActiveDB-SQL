@@ -18,18 +18,28 @@ reselection, and preference-guided regeneration.
 ## Setup
 
 ```bash
-# API key for GLM-5.2
-export GLM_API_KEY="your-key"
-
-# Install dependencies
+# 1. Install dependencies
 pip install -r requirements.txt
 
-# Model weights (download from HuggingFace / ModelScope)
-# - Qwen3-14B: modelscope/Qwen/Qwen3-14B
-# - Qwen2.5-Coder-32B-Instruct: modelscope/Qwen/Qwen2.5-Coder-32B-Instruct
-# - qwen3-14b-sqlplus-merged: huggingface/jiaguo/qwen3-14b-sqlplus-merged
-# - omnisql-14b-bird-continue: huggingface/jiaguo/omnisql-14b-bird-continue
-# - qwen3-14b-orm-v2-merged-bf16: huggingface/jiaguo/qwen3-14b-orm-v2-merged-bf16
+# 2. Set API key for GLM-5.2
+export GLM_API_KEY="your-key"
+
+# 3. Place BIRD data
+#    Download from BIRD official, then:
+mkdir -p data
+# Put test.json (or dev.json) and test_databases (or dev_databases) inside data/
+# The pipeline reads from data/dev.json and data/dev_databases/ by default.
+# Override with: DEV=data/test.json DBROOT=data/test_databases
+
+# 4. (Optional) Place model weights for GPU candidate generation
+mkdir -p models
+# Download from HuggingFace / ModelScope:
+# - Qwen3-14B -> models/Qwen3-14B
+# - Qwen2.5-Coder-32B-Instruct -> models/Qwen2.5-Coder-32B-Instruct
+# - qwen3-14b-sqlplus-merged -> models/qwen3-14b-sqlplus-merged
+# - omnisql-14b-bird-continue -> models/omnisql-14b-bird-continue
+# - qwen3-14b-orm-v2-merged-bf16 -> models/qwen3-14b-orm-v2-merged-bf16
+# Or set MODEL_DIR to wherever your models are.
 ```
 
 ## Resource Requirements
@@ -78,19 +88,23 @@ API scripts (GLM-5.2, no GPU):
 ## Execution
 
 ```bash
-# Full pipeline (GPU + API)
+# Set API key
 export GLM_API_KEY="your-key"
+
+# API-only pipeline (uses pre-generated candidate pools in runs/, no GPU needed)
 bash run_all.sh
 
-# API-only (using pre-generated candidate pools in runs/)
-# Skip GPU steps, start from Stage 2 in run_all.sh
+# With GPU candidate generation (needs vLLM + model weights in models/)
+VPY=/path/to/vllm/python bash run_all.sh --with-gpu
+
+# For BIRD test set: override data paths
+DEV=data/test.json DBROOT=data/test_databases bash run_all.sh
 
 # Verify dev result
-cd evaluation
-python bird_official_eval_fast.py \
-  --dev ../dev.json \
-  --pred ../predictions/final_1235.jsonl \
-  --db-root ../dev_databases \
+python3 evaluation/bird_official_eval_fast.py \
+  --dev data/dev.json \
+  --pred predictions/final_1235.jsonl \
+  --db-root data/dev_databases \
   --output /tmp/verify.json --workers 8
 ```
 
