@@ -4,7 +4,6 @@
 # Core dependencies
 pyyaml>=6.0
 requests>=2.31
-scikit-learn>=1.4
 
 # HuggingFace Hub (for model download)
 huggingface_hub>=0.24

@@ -12,7 +12,7 @@ dataset:
   db_root: data/dev_databases
 model:
   provider: openai-compatible
-  base_url: https://api.z.ai/api/paas/v4/
+  base_url: https://open.bigmodel.cn/api/paas/v4/
   model_name: glm-5.2
   api_key_env: GLM_API_KEY
   temperature: 0

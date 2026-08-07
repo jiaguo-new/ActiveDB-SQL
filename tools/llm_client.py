@@ -10,7 +10,10 @@ import requests
 
 
 class LLMClient:
-    """Minimal OpenAI-compatible chat completions client."""
+    """Minimal OpenAI-compatible chat completions client.
+
+    Supports GLM_BASE_URL env var to override the config base_url at runtime.
+    """
 
     def __init__(
         self,
@@ -20,7 +23,8 @@ class LLMClient:
         api_key_env: str = "GLM_API_KEY",
         timeout: float = 120.0,
     ):
-        self.base_url = base_url.rstrip("/")
+        # Allow env override (e.g., GLM_BASE_URL for different API endpoints)
+        self.base_url = (os.environ.get("GLM_BASE_URL") or base_url).rstrip("/")
         self.model_name = model_name
         self.api_key = api_key or os.environ.get(api_key_env)
         if not self.api_key:

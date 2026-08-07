@@ -1,10 +1,9 @@
-run_id: deep_regen_20260731
-experiment: DeepRegen
-experiment_name: GLM-5.2 deep regeneration with full DB context + multi-round repair
+run_id: route_a_multigen_20260731
+experiment: RouteA-top8
+experiment_name: GLM top-8 tournament reselection on selector failures
 description: |
-  For blind-spot failures, use GLM-5.2 to regenerate SQL from scratch with
-  schema + column samples + FK graph + evidence, then execute + repair up to
-  3 rounds. Fresh generation (not candidate reselection). Compliant.
+  Expanded Route A: ORM top-8 candidates, knockout tournament (pairwise GLM
+  judge among distinct-result candidates). No gold. Compliant.
 dataset:
   name: BIRD
   split: dev
@@ -15,9 +14,6 @@ model:
   base_url: https://open.bigmodel.cn/api/paas/v4/
   model_name: glm-5.2
   api_key_env: GLM_API_KEY
-  temperature: 0
-  top_p: 1.0
-  max_tokens: 4096
 execution:
   timeout_seconds: 30
   max_rows: 100

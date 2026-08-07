@@ -64,7 +64,7 @@ def main():
     ap.add_argument("--lora-path", default=None)
     ap.add_argument("--dev", required=True)
     ap.add_argument("--db-root", required=True)
-    ap.add_argument("--qids", required=True, help="JSON list of question ids")
+    ap.add_argument("--qids", default=None, help="JSON list of question ids (default: all)")
     ap.add_argument("--output", required=True)
     ap.add_argument("--n", type=int, default=8, help="candidates per question")
     ap.add_argument("--temperature", type=float, default=0.7)
@@ -75,7 +75,10 @@ def main():
     args = ap.parse_args()
 
     dev = json.load(open(args.dev))
-    target_qids = set(json.load(open(args.qids)))
+    if args.qids:
+        target_qids = set(json.load(open(args.qids)))
+    else:
+        target_qids = None  # process all questions
 
     # build prompts
     tokenizer = AutoTokenizer.from_pretrained(args.model, trust_remote_code=True)
@@ -87,7 +90,7 @@ def main():
     meta = []  # (qid, db_id, question, db_path)
     for item in dev:
         qid = item.get("question_id")
-        if qid not in target_qids:
+        if target_qids is not None and qid not in target_qids:
             continue
         db_id = item["db_id"]
         # get schema from DB

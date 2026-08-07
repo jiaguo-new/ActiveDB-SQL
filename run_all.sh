@@ -35,6 +35,17 @@ mkdir -p "$P" "$M"
 
 GLM_API_KEY="${GLM_API_KEY:?ERROR: Set GLM_API_KEY env var}"
 
+# --- Validate data exists ---
+if [ ! -f "$DEV" ]; then
+  echo "ERROR: $DEV not found. Place BIRD data in data/ directory."
+  echo "  mkdir -p data && cp /path/to/dev.json data/ && cp -r /path/to/dev_databases data/"
+  exit 1
+fi
+if [ ! -d "$DBROOT" ]; then
+  echo "ERROR: $DBROOT not found. Place BIRD databases in data/ directory."
+  exit 1
+fi
+
 WITH_GPU=false
 if [ "${1:-}" = "--with-gpu" ]; then
   WITH_GPU=true
@@ -176,13 +187,13 @@ python3 evaluation/bird_official_eval_fast.py \
 echo -e "\n[Step 8] Multi-generator Route A"
 get_fail_qids "$M/step7_eval.json"
 python3 scripts/run_route_a_reselect.py \
-  --config configs/route_a_top12_20260731.yaml \
+  --config configs/route_a_multigen_20260731.yaml \
   --scored-pool runs/triple_merged_scored_pool.jsonl \
   --cur-preds "$P/step7_route_a.jsonl" \
   --dev "$DEV" --fail-qids /tmp/fail_qids.json --workers 8 --timeout 90
 python3 merge_chain.py \
   --base "$P/step7_route_a.jsonl" \
-  --overlay "$P/route_a_top12_20260731/predictions.jsonl" \
+  --overlay "$P/route_a_multigen_20260731/predictions.jsonl" \
   --output "$P/step8_multigen.jsonl"
 python3 evaluation/bird_official_eval_fast.py \
   --dev "$DEV" --pred "$P/step8_multigen.jsonl" \
