@@ -1,0 +1,23 @@
+# NL2SQL Agent Harness — BIRD Submission Requirements
+# Python 3.13+
+
+# Core dependencies
+pyyaml>=6.0
+requests>=2.31
+scikit-learn>=1.4
+
+# HuggingFace Hub (for model download)
+huggingface_hub>=0.24
+
+# vLLM (GPU inference — only needed for candidate generation + ORM scoring)
+# Install in a separate conda env with CUDA support:
+#   conda create -n vllm-cuda python=3.13
+#   conda activate vllm-cuda
+#   pip install vllm
+vllm>=0.6.0
+
+# Transformers (for tokenizer loading in vLLM scripts)
+transformers>=4.44
+
+# SQLite (built-in, no pip needed)
+# Standard library: sqlite3, json, re, hashlib, concurrent.futures
