@@ -5,13 +5,13 @@ For each dev question:
   1. take the selector's chosen SQL (from compliant_merged4_ormband005);
   2. execute it (read-only);
   3. if it errors or returns empty -> feed (failed_sql, error, schema, question)
-     to GLM-5.2 for up to max_repairs rounds;
+     to DeepSeek-V4-Flash for up to max_repairs rounds;
   4. keep the repaired SQL only if it executes successfully (safe: never keep
      a repair that breaks a previously-ok SQL).
 
 Attacks BOTH error classes:
   - A (selector-miss): repair may fix a syntactically-broken or empty pick;
-  - B (generator-miss): the error feedback lets GLM correct join/column errors.
+  - B (generator-miss): the error feedback lets DeepSeek correct join/column errors.
 
 Compliant: only dev schema+question+evidence+execution-error; no gold.
 Parallel + resumable.

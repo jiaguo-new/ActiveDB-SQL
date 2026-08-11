@@ -4,7 +4,7 @@
 For each failure question:
   1. Build FK graph, diagnose JOIN topology (under/over-JOIN).
   2. Execute draft, produce noise report (empty/large/dup signals).
-  3. Feed draft + noise report + FK-correct JOIN info to GLM-5.2 for correction.
+  3. Feed draft + noise report + FK-correct JOIN info to DeepSeek-V4-Flash for correction.
   4. Pick best candidate (valid+non-empty, no gold).
 
 Resume-safe, parallel.

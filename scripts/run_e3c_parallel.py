@@ -5,7 +5,7 @@ For each failure question:
   1. Parse SELECT clause of draft SQL.
   2. Deterministic column probe: check column existence, ambiguity, COUNT(*),
      semantic mismatch with question keywords.
-  3. If issues found, feed draft + column report to GLM-5.2 for correction.
+  3. If issues found, feed draft + column report to DeepSeek-V4-Flash for correction.
   4. Pick best candidate (valid+non-empty, no gold).
 
 Resume-safe, parallel.

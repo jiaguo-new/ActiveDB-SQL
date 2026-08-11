@@ -1,8 +1,8 @@
 run_id: deep_regen_20260731
 experiment: DeepRegen
-experiment_name: GLM-5.2 deep regeneration with full DB context + multi-round repair
+experiment_name: DeepSeek-V4-Flash deep regeneration with full DB context + multi-round repair
 description: |
-  For blind-spot failures, use GLM-5.2 to regenerate SQL from scratch with
+  For blind-spot failures, use DeepSeek-V4-Flash to regenerate SQL from scratch with
   schema + column samples + FK graph + evidence, then execute + repair up to
   3 rounds. Fresh generation (not candidate reselection). Compliant.
 dataset:
@@ -12,9 +12,9 @@ dataset:
   db_root: data/dev_databases
 model:
   provider: openai-compatible
-  base_url: https://open.bigmodel.cn/api/paas/v4/
-  model_name: glm-5.2
-  api_key_env: GLM_API_KEY
+  base_url: https://api.deepseek.com
+  model_name: deepseek-v4-flash
+  api_key_env: DEEPSEEK_API_KEY
   temperature: 0
   top_p: 1.0
   max_tokens: 4096

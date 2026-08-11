@@ -2,7 +2,7 @@ run_id: e6_preference_guided_20260731
 experiment: E6
 experiment_name: Preference-guided regeneration with question analysis
 description: |
-  For failures, use GLM-5.2 to regenerate SQL with a preference-guided prompt.
+  For failures, use DeepSeek-V4-Flash to regenerate SQL with a preference-guided prompt.
   Step 1: analyze what the question asks for (columns, aggregation, format).
   Step 2: write SQL following BIRD annotation preferences learned from train.
   Compliant: train-derived rules only, no dev gold.
@@ -13,9 +13,9 @@ dataset:
   db_root: data/dev_databases
 model:
   provider: openai-compatible
-  base_url: https://open.bigmodel.cn/api/paas/v4/
-  model_name: glm-5.2
-  api_key_env: GLM_API_KEY
+  base_url: https://api.deepseek.com
+  model_name: deepseek-v4-flash
+  api_key_env: DEEPSEEK_API_KEY
   temperature: 0
   top_p: 1.0
   max_tokens: 4096

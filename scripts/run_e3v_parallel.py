@@ -6,7 +6,7 @@ For each base-failure question:
   2. Deterministic value probe: extract WHERE literals, look up actual DB cell
      values, fuzzy-match to find the correct literal.
   3. If probe found repairs, try the repaired SQL; also feed probe info + draft
-     to GLM-5.2 for a structural correction pass.
+     to DeepSeek-V4-Flash for a structural correction pass.
   4. Pick the best among {base, repaired, llm-corrected} by execution validity
      + non-empty result (no gold used).
 
@@ -34,7 +34,7 @@ from tools.llm_client import LLMClient  # noqa: E402
 
 sys.path.insert(0, str(ROOT / "agents"))
 from e3v_value_probe import probe_values  # noqa: E402
-from e4_execution_repair_agent import extract_sql  # noqa: E402 (GLM think-tag safe)
+from e4_execution_repair_agent import extract_sql  # noqa: E402 (DeepSeek think-tag safe)
 
 
 def _fmt_result(res: dict) -> str:
@@ -175,9 +175,9 @@ def main():
         print(f"fail-qids: {len(fail_ids)} questions", flush=True)
     elif args.failures_only:
         import glob
-        mfiles = glob.glob(str(ROOT / "metrics/e0_bird_dev_full_glm5.2_cot8k_20260724_eval.json"))
+        mfiles = sorted(glob.glob(str(ROOT / "metrics/step*_eval.json")))
         if mfiles:
-            m = json.load(open(mfiles[0]))
+            m = json.load(open(mfiles[-1]))
             fail_ids = {r["idx"] for r in m["per_query"] if not r["ex"]}
             print(f"failures-only: {len(fail_ids)} base-failure questions", flush=True)
 

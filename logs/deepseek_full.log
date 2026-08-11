@@ -1,0 +1,252 @@
+[Step3] E4
+fails: 464
+todo: 1534
+  [25/1534] 0s
+  [50/1534] 0s
+  [75/1534] 0s
+  [100/1534] 0s
+  [125/1534] 0s
+  [150/1534] 1s
+  [175/1534] 1s
+  [200/1534] 1s
+  [225/1534] 1s
+  [250/1534] 1s
+  [275/1534] 1s
+  [300/1534] 1s
+  [325/1534] 1s
+  [350/1534] 2s
+  [375/1534] 2s
+  [400/1534] 3s
+  [425/1534] 3s
+  [450/1534] 3s
+  [475/1534] 3s
+  [500/1534] 3s
+  [525/1534] 4s
+  [550/1534] 4s
+  [575/1534] 5s
+  [600/1534] 5s
+  [625/1534] 8s
+  [650/1534] 9s
+  [675/1534] 16s
+  [700/1534] 70s
+  [725/1534] 70s
+  [750/1534] 70s
+  [775/1534] 70s
+  [800/1534] 70s
+  [825/1534] 71s
+  [850/1534] 71s
+  [875/1534] 80s
+  [900/1534] 80s
+  [925/1534] 80s
+  [950/1534] 80s
+  [975/1534] 80s
+  [1000/1534] 80s
+  [1025/1534] 81s
+  [1050/1534] 81s
+  [1075/1534] 82s
+  [1100/1534] 82s
+  [1125/1534] 84s
+  [1150/1534] 85s
+  [1175/1534] 85s
+  [1200/1534] 85s
+  [1225/1534] 85s
+  [1250/1534] 85s
+  [1275/1534] 114s
+  [1300/1534] 114s
+  [1325/1534] 114s
+  [1350/1534] 114s
+  [1375/1534] 114s
+  [1400/1534] 114s
+  [1425/1534] 114s
+  [1450/1534] 114s
+  [1475/1534] 115s
+  [1500/1534] 115s
+  [1525/1534] 115s
+done: 1534 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/e4_exec_repair_on_e3v_20260729/predictions.jsonl
+Merged: 1534 base, 1534 overlay, 1534 replaced -> predictions/step3_e4.jsonl
+Execution Match (EX): 1071 / 1534 = 69.82%
+[Step4] E2
+fails: 463
+todo: 463
+  [25/463] 0s
+  [50/463] 1s
+  [75/463] 10s
+  [100/463] 35s
+  [125/463] 46s
+  [150/463] 53s
+  [175/463] 59s
+  [200/463] 89s
+  [225/463] 103s
+  [250/463] 120s
+  [275/463] 137s
+  [300/463] 137s
+  [325/463] 145s
+  [350/463] 148s
+  [375/463] 161s
+  [400/463] 172s
+  [425/463] 190s
+  [450/463] 195s
+done: 463 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/e2_join_repair_20260730/predictions.jsonl
+Merged: 1534 base, 463 overlay, 463 replaced -> predictions/step4_e2.jsonl
+Execution Match (EX): 1075 / 1534 = 70.08%
+[Step5] E3c
+fails: 459
+todo: 459
+  [25/459] 79s
+  [50/459] 136s
+  [75/459] 207s
+  [100/459] 279s
+  [125/459] 354s
+  [150/459] 403s
+  [175/459] 466s
+  [200/459] 523s
+  [225/459] 588s
+  [250/459] 665s
+  [275/459] 733s
+  [300/459] 798s
+  [325/459] 865s
+  [350/459] 920s
+  [375/459] 1003s
+  [400/459] 1060s
+  [425/459] 1125s
+  [450/459] 1198s
+done: 459 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/e3c_v2_column_grounding_20260730/predictions.jsonl
+Merged: 1534 base, 459 overlay, 459 replaced -> predictions/step5_e3c.jsonl
+Execution Match (EX): 1095 / 1534 = 71.38%
+[Step6] E3v+ + E5det
+fails: 439
+todo: 439
+  [25/439] 0s
+  [50/439] 0s
+  [75/439] 5s
+  [100/439] 7s
+  [125/439] 10s
+  [150/439] 13s
+  [175/439] 16s
+  [200/439] 25s
+  [225/439] 28s
+  [250/439] 28s
+  [275/439] 30s
+  [300/439] 30s
+  [325/439] 31s
+  [350/439] 34s
+  [375/439] 61s
+  [400/439] 68s
+  [425/439] 68s
+done: 439 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/e3v_enhanced_20260730/predictions.jsonl
+Merged: 1534 base, 439 overlay, 439 replaced -> predictions/step6a_e3vp.jsonl
+todo: 439
+  [50/439] 0s
+  [100/439] 0s
+  [150/439] 0s
+  [200/439] 1s
+  [250/439] 2s
+  [300/439] 2s
+  [350/439] 2s
+  [400/439] 2s
+done: 439 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/e5_det_repair_20260730/predictions.jsonl
+Merged: 1534 base, 439 overlay, 439 replaced -> predictions/step6_agent.jsonl
+Execution Match (EX): 1100 / 1534 = 71.71%
+[Step7] Route A
+fails: 434
+todo: 434
+  [25/434] 313s
+  [50/434] 324s
+  [75/434] 332s
+  [100/434] 339s
+  [125/434] 353s
+  [150/434] 368s
+  [175/434] 378s
+  [200/434] 392s
+  [225/434] 402s
+  [250/434] 411s
+  [275/434] 426s
+  [300/434] 438s
+  [325/434] 452s
+  [350/434] 461s
+  [375/434] 468s
+  [400/434] 472s
+  [425/434] 479s
+done: 434 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/route_a_top12_20260731/predictions.jsonl
+Merged: 1534 base, 434 overlay, 434 replaced -> predictions/step7_route_a.jsonl
+Execution Match (EX): 1119 / 1534 = 72.95%
+[Step8] MultiGen
+fails: 415
+todo: 352
+  [25/352] 10s
+  [50/352] 18s
+  [75/352] 30s
+  [100/352] 44s
+  [125/352] 59s
+  [150/352] 68s
+  [175/352] 80s
+  [200/352] 86s
+  [225/352] 97s
+  [250/352] 111s
+  [275/352] 125s
+  [300/352] 135s
+  [325/352] 142s
+  [350/352] 164s
+done: 352 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/route_a_multigen_20260731/predictions.jsonl
+Merged: 1534 base, 352 overlay, 352 replaced -> predictions/step8_multigen.jsonl
+Execution Match (EX): 1126 / 1534 = 73.40%
+[Step9] DeepRegen
+fails: 408
+todo: 408
+  [25/408] 49s
+  [50/408] 83s
+  [75/408] 120s
+  [100/408] 151s
+  [125/408] 186s
+  [150/408] 228s
+  [175/408] 256s
+  [200/408] 302s
+  [225/408] 357s
+  [250/408] 425s
+  [275/408] 469s
+  [300/408] 519s
+  [325/408] 578s
+  [350/408] 651s
+  [375/408] 706s
+  [400/408] 756s
+done: 408 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/deep_regen_20260731/predictions.jsonl
+Merged: 1534 base, 408 overlay, 408 replaced -> predictions/step9_deepregen.jsonl
+Execution Match (EX): 1168 / 1534 = 76.14%
+[Step10] E6+E7
+fails: 366
+todo: 366
+  [25/366] 74s
+  [50/366] 135s
+  [75/366] 187s
+  [100/366] 247s
+  [125/366] 299s
+  [150/366] 358s
+  [175/366] 420s
+  [200/366] 497s
+  [225/366] 575s
+  [250/366] 638s
+  [275/366] 704s
+  [300/366] 837s
+  [325/366] 937s
+  [350/366] 1005s
+done: 366 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/e6_preference_guided_20260731/predictions.jsonl
+Merged: 1534 base, 366 overlay, 366 replaced -> predictions/step10a_e6.jsonl
+todo: 366
+  [25/366] 68s
+  [50/366] 123s
+  [75/366] 165s
+  [100/366] 221s
+  [125/366] 283s
+  [150/366] 335s
+  [175/366] 390s
+  [200/366] 458s
+  [225/366] 524s
+  [250/366] 602s
+  [275/366] 656s
+  [300/366] 747s
+  [325/366] 821s
+  [350/366] 860s
+done: 366 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/e7_result_critique_20260731/predictions.jsonl
+Merged: 1534 base, 366 overlay, 366 replaced -> predictions/final_deepseek.jsonl
+Execution Match (EX): 1189 / 1534 = 77.51%
+=== PIPELINE COMPLETE ===

@@ -1,0 +1,7 @@
+todo: 101
+  [25/101] {'base': 6, 'judge_failed': 10, '3way_judge': 9}
+  [50/101] {'base': 14, 'judge_failed': 19, '3way_judge': 17}
+  [75/101] {'base': 17, 'judge_failed': 29, '3way_judge': 29}
+  [100/101] {'base': 22, 'judge_failed': 36, '3way_judge': 42}
+done: 101 -> predictions/enhanced_3way_20260811/predictions.jsonl
+chosen: {'base': 22, 'judge_failed': 37, '3way_judge': 42}

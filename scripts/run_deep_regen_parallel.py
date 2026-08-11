@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deep regeneration agent: for blind-spot failures, use GLM-5.2 to regenerate
+"""Deep regeneration agent: for blind-spot failures, use DeepSeek-V4-Flash to regenerate
 SQL from scratch with full DB context (schema + column samples + FK graph +
 evidence), then execute + repair up to 3 rounds.
 

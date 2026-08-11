@@ -1,0 +1,15 @@
+todo: 330
+  [25/330] 61s
+  [50/330] 104s
+  [75/330] 136s
+  [100/330] 172s
+  [125/330] 210s
+  [150/330] 256s
+  [175/330] 304s
+  [200/330] 357s
+  [225/330] 396s
+  [250/330] 424s
+  [275/330] 495s
+  [300/330] 548s
+  [325/330] 592s
+done: 330 -> /home/dameng/project/nl2sql_harness_reproduce/predictions/deepseek_regen_v4/predictions.jsonl

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Route A: GLM top-K reselection on selector-failure questions.
+"""Route A: DeepSeek top-K reselection on selector-failure questions.
 
 For each question where the current chain prediction is wrong:
   1. Load ORM-scored candidates from the pool.
   2. Take ORM top-3 candidates (by orm_score, executable only).
   3. Execute each, collect results.
   4. If all 3 produce the same result hash -> no disagreement, skip.
-  5. Otherwise: GLM-5.2 pairwise/tournament judge among top-3 (with execution
+  5. Otherwise: DeepSeek-V4-Flash pairwise/tournament judge among top-3 (with execution
      results, no gold). Pick winner.
   6. Accept judged winner only if it executes ok+non-empty.
 
@@ -79,20 +79,30 @@ def _pairwise_judge(client, question, evidence, cand_a, cand_b, qid, rng):
         ca, cb = cand_b, cand_a
     prompt = (
         "You are an expert SQL judge. Two candidate SQL queries answer the same "
-        "question but produce different results. Choose the one that correctly "
-        "answers the question based on the question intent.\n\n"
+        "question but produce different results. Analyze each candidate carefully, "
+        "then choose the one that correctly answers the question.\n\n"
         f"Question: {question}\n"
         f"Evidence: {evidence}\n\n"
         f"Candidate A SQL:\n```sql\n{ca['sql'].strip()}\n```\n"
-        f"Result of A:\n{ca['result_text']}\n\n"
+        f"Result of A (first 5 rows):\n{ca['result_text']}\n\n"
         f"Candidate B SQL:\n```sql\n{cb['sql'].strip()}\n```\n"
-        f"Result of B:\n{cb['result_text']}\n\n"
-        'Return ONLY: {"winner": "A"} or {"winner": "B"} or {"winner": "tie"}'
+        f"Result of B (first 5 rows):\n{cb['result_text']}\n\n"
+        "Analysis checklist:\n"
+        "- Does the SQL answer the EXACT question (count vs list vs avg)?\n"
+        "- Are the JOINs correct and minimal?\n"
+        "- Is the WHERE filter matching the question conditions?\n"
+        "- Is the aggregation type correct?\n"
+        "- Does the result look reasonable?\n\n"
+        "After analysis, output your final answer on the last line as:\n"
+        '{"winner": "A"} or {"winner": "B"} or {"winner": "tie"}'
     )
     try:
         comp = client.chat_completion(
-            messages=[{"role": "user", "content": prompt}],
-            temperature=0.0, max_tokens=64, thinking={"type": "disabled"},
+            messages=[
+                {"role": "system", "content": "You are an expert SQL evaluator. Analyze the SQL queries step by step, then give your final verdict."},
+                {"role": "user", "content": prompt},
+            ],
+            temperature=0.0, max_tokens=1024,
         )
         raw = comp["response"]["choices"][0]["message"]["content"]
         w = _parse_winner(raw, 2)

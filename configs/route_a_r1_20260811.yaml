@@ -1,0 +1,27 @@
+compliance:
+  no_gold_in_prompt: true
+dataset:
+  db_root: data/dev_databases
+  name: BIRD
+  source: data/dev.json
+  split: dev
+description: 'Expanded Route A: ORM top-8 candidates, knockout tournament (pairwise
+  DeepSeek
+
+  judge among distinct-result candidates). No gold. Compliant.
+
+  '
+execution:
+  max_rows: 100
+  timeout_seconds: 30
+experiment: RouteA-top8
+experiment_name: DeepSeek top-8 tournament reselection on selector failures
+model:
+  api_key_env: OPENROUTER_API_KEY
+  base_url: https://openrouter.ai/api/v1
+  model_name: deepseek/deepseek-r1
+  provider: openai-compatible
+output:
+  predictions: predictions/{run_id}/predictions.jsonl
+  run_dir: runs/{run_id}
+run_id: route_a_r1_judge

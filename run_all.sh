@@ -1,9 +1,9 @@
 #!/bin/bash
 # ActiveDB-SQL: End-to-end BIRD pipeline
-# Result: EX = 1230/1534 = 80.18% on BIRD dev
+# Result: EX = 1210/1534 = 78.88% on BIRD dev
 #
 # Prerequisites:
-#   export GLM_API_KEY="your-key"
+#   export DEEPSEEK_API_KEY="your-key"
 #   pip install -r requirements.txt
 #   # Place BIRD data: data/dev.json, data/dev_databases/
 #   # Place model weights: models/ (or set MODEL_DIR)
@@ -33,7 +33,7 @@ P=predictions
 M=metrics
 mkdir -p "$P" "$M"
 
-GLM_API_KEY="${GLM_API_KEY:?ERROR: Set GLM_API_KEY env var}"
+DEEPSEEK_API_KEY="${DEEPSEEK_API_KEY:?ERROR: Set DEEPSEEK_API_KEY env var}"
 
 # --- Validate data exists ---
 if [ ! -f "$DEV" ]; then

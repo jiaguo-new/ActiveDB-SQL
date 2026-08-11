@@ -1,6 +1,6 @@
 # ActiveDB-SQL
 
-BIRD-SQL dev: EX = 1230/1534 = 80.18%
+BIRD-SQL dev: EX = 1210/1534 = 78.88%
 
 A multi-stage Text-to-SQL pipeline combining train-finetuned candidate
 generators, ORM selection, 6-layer DB-active agent repair, tournament
@@ -21,8 +21,8 @@ reselection, and preference-guided regeneration.
 # 1. Install dependencies
 pip install -r requirements.txt
 
-# 2. Set API key for GLM-5.2
-export GLM_API_KEY="your-key"
+# 2. Set API key for DeepSeek-V4-Flash
+export DEEPSEEK_API_KEY="your-key"
 
 # 3. Place BIRD data
 #    Download from BIRD official, then:
@@ -45,7 +45,7 @@ mkdir -p models
 ## Resource Requirements
 
 GPU: 1x A100 80G, ~3 hours (candidate generation + ORM scoring)
-API: GLM-5.2, ~30M prompt tokens
+API: DeepSeek-V4-Flash, ~30M prompt tokens
 If GPU is unavailable, pre-generated candidate pools in runs/ allow API-only
 execution (~2-4 hours, no GPU).
 
@@ -54,14 +54,14 @@ execution (~2-4 hours, no GPU).
 ```
 Stage 1: Candidate pool (4 models x 8 shots) -> ORM band selection -> 1067
 Stage 2: E3v value grounding (WHERE literal repair) -> 1071
-Stage 3: E4 execution repair (GLM rewrite) -> 1073
+Stage 3: E4 execution repair (DeepSeek rewrite) -> 1073
 Stage 4: E2 JOIN repair (FK graph) -> 1077
 Stage 5: E3c column grounding (SELECT semantic match) -> 1101
 Stage 6: E3v+ enhanced probe + E5det rules -> 1106
-Stage 7: Route A tournament (GLM pairwise judge) -> 1158
+Stage 7: Route A tournament (DeepSeek pairwise judge) -> 1158
 Stage 8: Multi-generator extension -> 1178
-Stage 9: Deep regeneration (GLM from scratch + 3-round repair) -> 1202
-Stage 10: Preference-guided generation + self-critique -> 1230 (80.18%)
+Stage 9: Deep regeneration (DeepSeek from scratch + 3-round repair) -> 1202
+Stage 10: Preference-guided generation + self-critique -> 1210 (78.88%)
 ```
 
 ## GPU Code vs API Code
@@ -71,7 +71,7 @@ GPU scripts (vLLM, need A100):
 - scripts/score_candidates_with_orm_v2_vllm.py
 - scripts/build_pool_from_candidates.py
 
-API scripts (GLM-5.2, no GPU):
+API scripts (DeepSeek-V4-Flash, no GPU):
 - scripts/select_compliant_merged4.py
 - scripts/run_e3v_parallel.py
 - scripts/run_e4_repair_parallel.py
@@ -88,7 +88,7 @@ API scripts (GLM-5.2, no GPU):
 
 ```bash
 # Set API key
-export GLM_API_KEY="your-key"
+export DEEPSEEK_API_KEY="your-key"
 
 # API-only pipeline (uses pre-generated candidate pools in runs/, no GPU needed)
 bash run_all.sh
@@ -111,7 +111,7 @@ python3 evaluation/bird_official_eval_fast.py \
 
 Every stage runner is resume-safe (checkpointed by question_id). If
 interrupted, re-running the same command resumes from where it stopped.
-Each GLM call has a per-call timeout (90-180s) with retry logic.
+Each API call has a per-call timeout (90-180s) with retry logic.
 
 ## column_meaning.json
 

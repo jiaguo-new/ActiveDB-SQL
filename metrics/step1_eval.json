@@ -1,14 +1,14 @@
 {
   "total": 1534,
-  "em": 137,
-  "ex": 1060,
+  "em": 135,
+  "ex": 1067,
   "valid": 1533,
-  "em_rate": 8.93089960886571,
-  "ex_rate": 69.10039113428944,
+  "em_rate": 8.800521512385918,
+  "ex_rate": 69.5567144719687,
   "valid_rate": 99.9348109517601,
   "join_total": 1140,
-  "join_ex": 769,
-  "join_ex_rate": 67.45614035087719,
+  "join_ex": 774,
+  "join_ex_rate": 67.89473684210526,
   "per_query": [
     {
       "idx": 0,
@@ -749,13 +749,13 @@
     },
     {
       "idx": 67,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "e79f051038cb694c9e8c4aea52962d25",
+      "pred_hash": "649098035030d523bb76cc5767387f43",
       "gold_hash": "649098035030d523bb76cc5767387f43"
     },
     {
@@ -1344,7 +1344,7 @@
     {
       "idx": 121,
       "ex": true,
-      "em": false,
+      "em": true,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
@@ -1662,13 +1662,13 @@
     },
     {
       "idx": 150,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "400cd2c3ff1ac60e2a9d9c9371ee4e9e",
+      "pred_hash": "42750b253b63db290833762d7b650902",
       "gold_hash": "42750b253b63db290833762d7b650902"
     },
     {
@@ -1850,7 +1850,7 @@
     {
       "idx": 167,
       "ex": true,
-      "em": true,
+      "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
@@ -2383,7 +2383,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "a8e654b8d44fda97aaf391f807978a99",
+      "pred_hash": "2dc214ce991f4429134e8162a596bc62",
       "gold_hash": "066a8ad534c81e491da7921de2c6897a"
     },
     {
@@ -3059,13 +3059,13 @@
     },
     {
       "idx": 277,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "72b9ff091a92d65203819377e834b89b",
+      "pred_hash": "014fb058686118cbbc4f1cddcaf86d3d",
       "gold_hash": "014fb058686118cbbc4f1cddcaf86d3d"
     },
     {
@@ -4412,13 +4412,13 @@
     },
     {
       "idx": 400,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "df798642d7f9d7ea6de330c2479ca841",
+      "pred_hash": "e5d00efeddfe9522de645c97a5da0450",
       "gold_hash": "e5d00efeddfe9522de645c97a5da0450"
     },
     {
@@ -5062,7 +5062,7 @@
     {
       "idx": 459,
       "ex": true,
-      "em": true,
+      "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
@@ -6403,13 +6403,13 @@
     },
     {
       "idx": 581,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "f7641eabc9a149076ba76be7642b61a5",
+      "pred_hash": "700ff59034a3be9217553bca40de4525",
       "gold_hash": "f7641eabc9a149076ba76be7642b61a5"
     },
     {
@@ -6563,7 +6563,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "7d965fb3a788f2a0cc902ab1748f78d1",
+      "pred_hash": "d82971c6c3a34b87285b9d76d544dff6",
       "gold_hash": "0803674b9a7ff28c15a3d2f7add0edad"
     },
     {
@@ -7382,13 +7382,13 @@
     },
     {
       "idx": 670,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "4aa7bf5e4f94389e5f22eff059b223b2",
+      "pred_hash": "75f69b803b0764f1966c1a8dbf919017",
       "gold_hash": "75f69b803b0764f1966c1a8dbf919017"
     },
     {
@@ -9569,13 +9569,13 @@
     },
     {
       "idx": 869,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "7da5ef814672fba607bdc74d6a0baf57",
+      "pred_hash": "92fa64b994b6463cd699617ac941f6af",
       "gold_hash": "92fa64b994b6463cd699617ac941f6af"
     },
     {
@@ -10801,13 +10801,13 @@
     },
     {
       "idx": 981,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "af5bd8cb7bacaa7ee77bf6a1af0cfef6",
+      "pred_hash": "84d58c4af673f5034988fc10d41562b7",
       "gold_hash": "84d58c4af673f5034988fc10d41562b7"
     },
     {
@@ -10862,7 +10862,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "5569209d68adb2435e4591fe7c318dd2",
+      "pred_hash": "dbfce2379b3625f148e10c5b161d47c8",
       "gold_hash": "f31e1f72b6bf6832088a2d977b8bb041"
     },
     {
@@ -12314,8 +12314,8 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "4904f9f93df3e9211410ff5c51074aaf",
-      "gold_hash": "c3595f4011c431854e940711f4487f77"
+      "pred_hash": "72922ca018114a3a86de74d6e2388bc9",
+      "gold_hash": "481f8ec02a094d8715f0e871a60d51b3"
     },
     {
       "idx": 1119,
@@ -12749,7 +12749,7 @@
     {
       "idx": 1158,
       "ex": true,
-      "em": true,
+      "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
@@ -15267,13 +15267,13 @@
     },
     {
       "idx": 1387,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "b17e3bd5eb41572035ccc2a4d4bcb5c1",
+      "pred_hash": "7e3ce2523639b524d233e049b4c930c3",
       "gold_hash": "7e3ce2523639b524d233e049b4c930c3"
     },
     {
@@ -16269,7 +16269,7 @@
     {
       "idx": 1478,
       "ex": true,
-      "em": true,
+      "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
@@ -16863,7 +16863,7 @@
     {
       "idx": 1532,
       "ex": true,
-      "em": false,
+      "em": true,
       "valid": true,
       "gold_error": null,
       "pred_error": null,

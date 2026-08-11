@@ -32,7 +32,7 @@ def render_prompt(template: str, **kwargs: Any) -> str:
 
 def extract_sql(text: str) -> str:
     text = text.strip()
-    # Remove reasoning tags that some models (e.g., GLM-5.2) emit before the SQL.
+    # Remove reasoning tags that some models (e.g., DeepSeek-V4-Flash) emit before the SQL.
     text = re.sub(r"<reasoning>.*?</reasoning>", "", text, flags=re.DOTALL | re.IGNORECASE)
     text = re.sub(r"<think>.*?</think>", "", text, flags=re.DOTALL | re.IGNORECASE)
     text = text.strip()
@@ -287,5 +287,5 @@ def run_e4(config_path: Path | str) -> None:
 if __name__ == "__main__":
     import sys
 
-    config_path = sys.argv[1] if len(sys.argv) > 1 else "configs/e4_bird_dev20_glm5.2.yaml"
+    config_path = sys.argv[1] if len(sys.argv) > 1 else "configs/e4_bird_dev20_deepseek.yaml"
     run_e4(config_path)

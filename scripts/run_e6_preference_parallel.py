@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Runner for preference-guided regeneration: GLM-5.2 with BIRD annotation
+"""Runner for preference-guided regeneration: DeepSeek-V4-Flash with BIRD annotation
 preferences + question analysis step. Applied to current failures."""
 from __future__ import annotations
 import argparse, json, sys, time, re, sqlite3
