@@ -38,3 +38,27 @@
 1. Port remaining 5 plugins (e3v_enhanced, e5det, multigen, preference, critique) to close the 54-question gap
 2. Experiment with new plugin combinations (e.g., regen before judge, or judge on regen output)
 3. Try DeepSeek-V4-Pro selectively (e.g., only for judge or only for regen)
+
+## Experiment F: Full 12-Plugin Pipeline (Added 2026-08-14)
+
+| Stage | Plugins | EX | Delta |
+|-------|---------|-----|-------|
+| select | orm_band | 1068 (69.6%) | — |
+| repair | value_grounding, execution_repair, join_repair, column_grounding, e3v_enhanced, e5_det_rules | 1090 (71.1%) | +22 |
+| judge | route_a_tournament, multigen | 1134 (73.9%) | +44 |
+| regen | deep_regen, preference_guided, result_critique | 1188 (77.4%) | +54 |
+
+FINAL: EX = 1188/1534 = 77.4%
+
+### Comparison
+
+| Version | EX | Notes |
+|---------|-----|-------|
+| Plugin framework 12 plugins (exp F) | 1188 (77.4%) | Single YAML config |
+| Old fixed pipeline v1 | 1189 (77.51%) | Hardcoded 10 steps |
+| Old fixed pipeline tuned | 1210 (78.88%) | +3 rounds of manual tuning |
+| Gap to tuned | 22 questions | Tuning portable to plugin config |
+
+The plugin framework matches the old pipeline v1 with a single YAML config.
+The remaining 22-question gap is from manual tuning (judge prompt optimization,
+3-way judge, extra regen round) that can be ported as config changes.
