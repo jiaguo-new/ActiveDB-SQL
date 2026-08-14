@@ -1,0 +1,37 @@
+# Experiment C: Select + Repair + Judge
+llm:
+  base_url: https://api.deepseek.com
+  model_name: deepseek-v4-flash
+  api_key_env: DEEPSEEK_API_KEY
+  timeout: 120
+data:
+  dev: data/dev.json
+  db_root: data/dev_databases
+plugins:
+  - stage: select
+    name: orm_band
+    module: plugins.select.orm_band
+    config:
+      pool: runs/merged4model_n4_clean_scored_20260805.jsonl
+      band: 0.05
+  - stage: repair
+    name: value_grounding
+    module: plugins.repair.value_grounding
+  - stage: repair
+    name: execution_repair
+    module: plugins.repair.execution_repair
+    config:
+      max_repairs: 2
+  - stage: repair
+    name: join_repair
+    module: plugins.repair.join_repair
+  - stage: repair
+    name: column_grounding
+    module: plugins.repair.column_grounding
+  - stage: judge
+    name: route_a_tournament
+    module: plugins.judge.route_a
+    config:
+      pool: runs/merged4model_n8_pool_scored_20260729.jsonl
+      top_k: 12
+      max_tokens: 1024

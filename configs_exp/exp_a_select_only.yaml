@@ -1,0 +1,16 @@
+# Experiment A: Select only (baseline)
+llm:
+  base_url: https://api.deepseek.com
+  model_name: deepseek-v4-flash
+  api_key_env: DEEPSEEK_API_KEY
+  timeout: 120
+data:
+  dev: data/dev.json
+  db_root: data/dev_databases
+plugins:
+  - stage: select
+    name: orm_band
+    module: plugins.select.orm_band
+    config:
+      pool: runs/merged4model_n4_clean_scored_20260805.jsonl
+      band: 0.05
