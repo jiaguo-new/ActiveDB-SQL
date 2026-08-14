@@ -1,14 +1,14 @@
 {
   "total": 1534,
-  "em": 137,
-  "ex": 1100,
-  "valid": 1532,
-  "em_rate": 8.93089960886571,
-  "ex_rate": 71.70795306388527,
-  "valid_rate": 99.86962190352021,
+  "em": 138,
+  "ex": 1096,
+  "valid": 1533,
+  "em_rate": 8.996088657105606,
+  "ex_rate": 71.44719687092568,
+  "valid_rate": 99.9348109517601,
   "join_total": 1140,
-  "join_ex": 799,
-  "join_ex_rate": 70.08771929824562,
+  "join_ex": 795,
+  "join_ex_rate": 69.73684210526316,
   "per_query": [
     {
       "idx": 0,
@@ -29,7 +29,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "f988d7b9bf1ca0cb89822367ff7599d6",
+      "pred_hash": "6ca18b7836189698fd40664d70e9792f",
       "gold_hash": "960c3f7424f9e5c243ce722a954b2811"
     },
     {
@@ -485,13 +485,13 @@
     },
     {
       "idx": 43,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "47249fa873a552f3a7215b1f976e5e91",
+      "pred_hash": "cbf64365ad5707da72ade71299e5d3ba",
       "gold_hash": "47249fa873a552f3a7215b1f976e5e91"
     },
     {
@@ -518,13 +518,13 @@
     },
     {
       "idx": 46,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "aeddc29bf6925a129ff73185328bc46f",
+      "pred_hash": "03b4adcd8d0bca1c40dad02b65ab7420",
       "gold_hash": "aeddc29bf6925a129ff73185328bc46f"
     },
     {
@@ -832,7 +832,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "pred_hash": "a5fc98ddccbde7f65210be31b0cf7d5d",
       "gold_hash": "f988d7b9bf1ca0cb89822367ff7599d6"
     },
     {
@@ -958,13 +958,13 @@
     },
     {
       "idx": 86,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "af11e7be1c8d6bfc02424a282557c285",
+      "pred_hash": "e971ce1d31912e0ddbc884c991ff543c",
       "gold_hash": "e971ce1d31912e0ddbc884c991ff543c"
     },
     {
@@ -1563,13 +1563,13 @@
     },
     {
       "idx": 141,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "a0c3a06a2b421dfc512e9bdb89a31fb9",
+      "pred_hash": "9e82abe78d77caf476610fca948bdcfa",
       "gold_hash": "a0c3a06a2b421dfc512e9bdb89a31fb9"
     },
     {
@@ -1723,7 +1723,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "171a0985d314670da8674d0fe74bc6e8",
+      "pred_hash": "46dc079ad7bf07c2a18ed5851e633088",
       "gold_hash": "7a6bf04ae9b1f5ade89f1d046908a5f9"
     },
     {
@@ -1954,7 +1954,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "0c7e0d03063d8f1629f0300a1797b182",
+      "pred_hash": "c50339a865afa50de71853797dc67641",
       "gold_hash": "ba471ece083c301b07134f096bb28b07"
     },
     {
@@ -3411,13 +3411,13 @@
     },
     {
       "idx": 309,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "d4ae6b946897941703808bd6db1ec575",
+      "pred_hash": "939a73bcab83f97ad0b39b671ddea0b9",
       "gold_hash": "939a73bcab83f97ad0b39b671ddea0b9"
     },
     {
@@ -3428,7 +3428,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "760ceec67f43ce88cd66ce4ce6d5cee5",
+      "pred_hash": "178c8a218879fe25cdad2f82affec20c",
       "gold_hash": "bf08b51192fd54e47398248ab2af8289"
     },
     {
@@ -3835,7 +3835,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "f4ef9581fb487df1c240daa25672e10b",
+      "pred_hash": "4980b50da04dbcbb05f0ed188617a9a7",
       "gold_hash": "6bfa6fd7fc647c28763ef20288dc7618"
     },
     {
@@ -4396,7 +4396,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "2ba38827ecb35aa3701254b526f70a82",
+      "pred_hash": "57adef4d647d6f38bf7a29dca7f19711",
       "gold_hash": "400cd2c3ff1ac60e2a9d9c9371ee4e9e"
     },
     {
@@ -4484,7 +4484,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "dde658eb6c3944eb7f6eb0d34c17424a",
+      "pred_hash": "4e4e11de51f943ae7846f99aca110643",
       "gold_hash": "2332b6e0fc030884a6bbae0765a75a8e"
     },
     {
@@ -4682,7 +4682,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "72d08ee87b44b797b130a02b0ba8d84f",
+      "pred_hash": "75c62aa4e1e7ffa481e21af535fb16ea",
       "gold_hash": "2364cf914a86c91fbc8c38b737b92baa"
     },
     {
@@ -4742,13 +4742,13 @@
     },
     {
       "idx": 430,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "6e12bbb6be2eaebc02e8a16324131cbe",
+      "pred_hash": "d05bf43ed69e780f6457d9df871ea83a",
       "gold_hash": "d05bf43ed69e780f6457d9df871ea83a"
     },
     {
@@ -5111,7 +5111,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "a77a5ffc7bc98ca8e696f8c6ad05ba45",
+      "pred_hash": "698eb0b04d59dc509df6a9be5daef2d3",
       "gold_hash": "c2ef456f6a764fca8692d16f25c6387a"
     },
     {
@@ -5672,7 +5672,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "78941cc00286fe62e497a443a3ec5dcf",
+      "pred_hash": "bdc17ee296c6e3355a7c25ae65a0ffae",
       "gold_hash": "44b2c11571a294829116f464a7927b20"
     },
     {
@@ -5683,7 +5683,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "15914b457bb230d3bea9ffad3cbe5b8a",
+      "pred_hash": "29dc24fe66b0797f52154ad715875abd",
       "gold_hash": "4899eaa169c5248f9e5a5881ba035085"
     },
     {
@@ -5831,13 +5831,13 @@
     },
     {
       "idx": 529,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "82f659e14c013a734a4e9caef36d83f5",
+      "pred_hash": "d41d8cd98f00b204e9800998ecf8427e",
       "gold_hash": "82f659e14c013a734a4e9caef36d83f5"
     },
     {
@@ -6475,7 +6475,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "41276ffc46a2ccd2ea6a67d09e68b273",
+      "pred_hash": "74cc042a172ac7dfb4151392139a2166",
       "gold_hash": "41cbe9970a62189ab9f7da49a6941177"
     },
     {
@@ -6563,7 +6563,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "bfb36c596978acc6d0538934067672e5",
+      "pred_hash": "d82971c6c3a34b87285b9d76d544dff6",
       "gold_hash": "0803674b9a7ff28c15a3d2f7add0edad"
     },
     {
@@ -6574,7 +6574,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "a6c667c96924aaab65edd5076e912c06",
+      "pred_hash": "5474b28c2b6d886f3494cbe47489c515",
       "gold_hash": "7fc3c847a4902116ba77d58d61336b69"
     },
     {
@@ -6658,10 +6658,12 @@
       "idx": 604,
       "ex": false,
       "em": false,
-      "valid": false,
+      "valid": true,
       "gold_error": null,
-      "pred_error": "eval_timeout",
-      "is_join": true
+      "pred_error": null,
+      "is_join": true,
+      "pred_hash": "b3a04cd6d26f0b174b763a45c6434d0b",
+      "gold_hash": "db3b2dae7ca6cacf8f617c6f79bbb5a6"
     },
     {
       "idx": 605,
@@ -7001,18 +7003,18 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "4edb355e66f5096ffd0ec08d4f69744b",
+      "pred_hash": "7420ab51a6b4431efc7c5adc7e84928d",
       "gold_hash": "283880b50bc68a4ed5184926ab5c32b8"
     },
     {
       "idx": 636,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "f083c19cd11a5168c3080cd59535046e",
+      "pred_hash": "28111943d375b5579cdd33322f3f398a",
       "gold_hash": "f083c19cd11a5168c3080cd59535046e"
     },
     {
@@ -7650,7 +7652,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "4eca4496c7381ffac3569e3760b77c48",
+      "pred_hash": "0dddf4220fafc4dc82864e4edc268907",
       "gold_hash": "b8b8869a6c49facb52c322fcf8558764"
     },
     {
@@ -7934,7 +7936,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "c05ef584b29cf8e4eebb0c9e86456f67",
+      "pred_hash": "43bedf9b17ac9d95372561a49afdb346",
       "gold_hash": "6549abf8aa9324f6a7464d2eea52f99f"
     },
     {
@@ -8940,13 +8942,13 @@
     },
     {
       "idx": 812,
-      "ex": false,
-      "em": false,
+      "ex": true,
+      "em": true,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "f5c959725dd5e43cae9bf0d18caba352",
+      "pred_hash": "4db2e7867e5b7706775f0065c1340bfc",
       "gold_hash": "4db2e7867e5b7706775f0065c1340bfc"
     },
     {
@@ -9600,13 +9602,13 @@
     },
     {
       "idx": 872,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "pred_hash": "b8afae0ec96eb04d878e29b399d1af76",
       "gold_hash": "b8afae0ec96eb04d878e29b399d1af76"
     },
     {
@@ -9727,7 +9729,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "330e83e565f106888fd016e9f17226a9",
+      "pred_hash": "5828d759dc5172a54437490607978cab",
       "gold_hash": "45ae70d5cbbb1a1480c3871de905d876"
     },
     {
@@ -9848,7 +9850,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "92d7787dff1a3545e7e3826f74d2f966",
+      "pred_hash": "91ffbfb54315bf17ee49d19a5393d1c9",
       "gold_hash": "f61d659ae13db84a954de6459d067414"
     },
     {
@@ -9892,7 +9894,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "13dc486576bb7ae6969e81f026d73709",
+      "pred_hash": "fb91610a1d9ec274c83c7ba6effc4780",
       "gold_hash": "7953356dfde63fe2ea13d1c2d387f2e1"
     },
     {
@@ -10519,7 +10521,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "f897359083f3a1f1c4e8a23ad28a7813",
+      "pred_hash": "b7fdd6b23d30e099a8b2e76f82817480",
       "gold_hash": "1bfa7e52828b9703db8c92c9702fc007"
     },
     {
@@ -10942,13 +10944,13 @@
     },
     {
       "idx": 994,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "6befc7792b97ce107228e9d0ee3a7334",
+      "pred_hash": "65e9021e7b44a7fe65621026e6ba08ea",
       "gold_hash": "65e9021e7b44a7fe65621026e6ba08ea"
     },
     {
@@ -11058,7 +11060,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "840f3bc10b44ca14504047ecd3fc27c8",
+      "pred_hash": "2410c53600970b9ab2c7defb5396795e",
       "gold_hash": "400cd2c3ff1ac60e2a9d9c9371ee4e9e"
     },
     {
@@ -11311,7 +11313,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "9dd9129d54e5b278bf1b34d86757aa41",
+      "pred_hash": "75155df80f17b97a7b871f6d7b9d99a4",
       "gold_hash": "5df03e8f986c1e7b9815bfe4318d25ac"
     },
     {
@@ -12312,8 +12314,8 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "72922ca018114a3a86de74d6e2388bc9",
-      "gold_hash": "481f8ec02a094d8715f0e871a60d51b3"
+      "pred_hash": "c8e4e7ba840cfe0746d5694d381d9b4d",
+      "gold_hash": "e14dba85abffb9e3b2f2c7424bc22d65"
     },
     {
       "idx": 1119,
@@ -12499,7 +12501,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "0dbad68ba450b7f634b583a28fdb49ff",
+      "pred_hash": "f695e724ef6a1b0eae02182a3f2b3121",
       "gold_hash": "2d86183a0c03d86a0f542aa72f2a8f43"
     },
     {
@@ -13269,7 +13271,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "282796f9d607ce0e9ed45fc404ce2f3c",
+      "pred_hash": "a872788f14eb40411d7dab9f7052be6b",
       "gold_hash": "778371087c40ce1d31e4fb21445c613a"
     },
     {
@@ -13357,7 +13359,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "9ff13e76dc9baac49a5320e87059bf93",
+      "pred_hash": "8ad382432523b954edf4716ec1514d52",
       "gold_hash": "8d97fd96648ed4824dcd5265cddc1792"
     },
     {
@@ -13384,13 +13386,13 @@
     },
     {
       "idx": 1216,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "0ebc989259273ba30707c84997852a29",
+      "pred_hash": "0f82481f33fb873bebe6f3a17015a3bc",
       "gold_hash": "0ebc989259273ba30707c84997852a29"
     },
     {
@@ -13604,13 +13606,13 @@
     },
     {
       "idx": 1236,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "391a01daf7010dc3c27d186801d73599",
+      "pred_hash": "39609de288c62482fd97aafa82cae757",
       "gold_hash": "391a01daf7010dc3c27d186801d73599"
     },
     {
@@ -13665,7 +13667,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "eb6c5e79d01f81b2e5b797671780ba63",
+      "pred_hash": "39343bbe6d061bb5ec313e8cb26dcc3a",
       "gold_hash": "b3f9be1acfac128b2418870b7252104c"
     },
     {
@@ -14402,7 +14404,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "2ca8b7362944e20f562b7eaba9fe9c40",
+      "pred_hash": "e63b121dbe74396aba314708a251a1bc",
       "gold_hash": "969ff8aec9ca48672773324376a33550"
     },
     {
@@ -15034,13 +15036,13 @@
     },
     {
       "idx": 1366,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "692de3e2cc0d5c7b000c63e9ed4b7a3f",
+      "pred_hash": "4225cafec5545a660ae261072b25c678",
       "gold_hash": "692de3e2cc0d5c7b000c63e9ed4b7a3f"
     },
     {
@@ -15084,7 +15086,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "c41b5284816bf0ba8cbc4365cfe029c7",
+      "pred_hash": "1a25076b0e94e02a7b9eec2ca93afb9a",
       "gold_hash": "f528bd3e4d9934eb477b938b7382d132"
     },
     {
@@ -16497,13 +16499,13 @@
     },
     {
       "idx": 1499,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "589719ab51571eb3e1a94ac4c2e2701c",
+      "pred_hash": "e314906189d96641292262e96e0c8532",
       "gold_hash": "589719ab51571eb3e1a94ac4c2e2701c"
     },
     {
@@ -16618,13 +16620,13 @@
     },
     {
       "idx": 1510,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "1048ef033b04f6c54f3d6a81b6c3a9f3",
+      "pred_hash": "4c23c5e41076cf5b6c0357e49d151166",
       "gold_hash": "1048ef033b04f6c54f3d6a81b6c3a9f3"
     },
     {
@@ -16800,7 +16802,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "f988d7b9bf1ca0cb89822367ff7599d6",
+      "pred_hash": "111ed538f3df1204221212fdb39f590f",
       "gold_hash": "318a21613f864e9ac66d0ff54264cbb1"
     },
     {

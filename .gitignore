@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+logs/
+data/
+models/
+*.gguf
+
+submission_email.md

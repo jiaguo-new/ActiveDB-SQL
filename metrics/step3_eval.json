@@ -1,14 +1,14 @@
 {
   "total": 1534,
   "em": 136,
-  "ex": 1071,
+  "ex": 1072,
   "valid": 1533,
   "em_rate": 8.865710560625814,
-  "ex_rate": 69.8174706649283,
+  "ex_rate": 69.88265971316818,
   "valid_rate": 99.9348109517601,
   "join_total": 1140,
-  "join_ex": 776,
-  "join_ex_rate": 68.0701754385965,
+  "join_ex": 777,
+  "join_ex_rate": 68.15789473684211,
   "per_query": [
     {
       "idx": 0,
@@ -832,7 +832,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "pred_hash": "a5fc98ddccbde7f65210be31b0cf7d5d",
       "gold_hash": "f988d7b9bf1ca0cb89822367ff7599d6"
     },
     {
@@ -958,13 +958,13 @@
     },
     {
       "idx": 86,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "af11e7be1c8d6bfc02424a282557c285",
+      "pred_hash": "e971ce1d31912e0ddbc884c991ff543c",
       "gold_hash": "e971ce1d31912e0ddbc884c991ff543c"
     },
     {
@@ -3417,7 +3417,7 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "d4ae6b946897941703808bd6db1ec575",
+      "pred_hash": "1857562d870058d74453b567a4bd29c0",
       "gold_hash": "939a73bcab83f97ad0b39b671ddea0b9"
     },
     {
@@ -5831,13 +5831,13 @@
     },
     {
       "idx": 529,
-      "ex": true,
+      "ex": false,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "82f659e14c013a734a4e9caef36d83f5",
+      "pred_hash": "d41d8cd98f00b204e9800998ecf8427e",
       "gold_hash": "82f659e14c013a734a4e9caef36d83f5"
     },
     {
@@ -9602,13 +9602,13 @@
     },
     {
       "idx": 872,
-      "ex": false,
+      "ex": true,
       "em": false,
       "valid": true,
       "gold_error": null,
       "pred_error": null,
       "is_join": true,
-      "pred_hash": "d41d8cd98f00b204e9800998ecf8427e",
+      "pred_hash": "b8afae0ec96eb04d878e29b399d1af76",
       "gold_hash": "b8afae0ec96eb04d878e29b399d1af76"
     },
     {
@@ -12314,8 +12314,8 @@
       "gold_error": null,
       "pred_error": null,
       "is_join": false,
-      "pred_hash": "72922ca018114a3a86de74d6e2388bc9",
-      "gold_hash": "481f8ec02a094d8715f0e871a60d51b3"
+      "pred_hash": "c8e4e7ba840cfe0746d5694d381d9b4d",
+      "gold_hash": "e14dba85abffb9e3b2f2c7424bc22d65"
     },
     {
       "idx": 1119,
