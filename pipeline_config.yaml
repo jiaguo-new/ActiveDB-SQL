@@ -1,0 +1,62 @@
+# NL2SQL Harness — Plugin Pipeline Configuration
+# DeepSeek-V4-Flash configuration (best: 78.88%)
+#
+# Edit this file to change the pipeline. Add/remove/reorder plugins.
+# Each plugin is independent — just add/remove entries below.
+
+llm:
+  base_url: https://api.deepseek.com
+  model_name: deepseek-v4-flash
+  api_key_env: DEEPSEEK_API_KEY
+  timeout: 120
+
+data:
+  dev: data/dev.json
+  db_root: data/dev_databases
+
+plugins:
+  # ── Stage 1: Candidate Selection ──
+  - stage: select
+    name: orm_band
+    module: plugins.select.orm_band
+    config:
+      pool: runs/merged4model_n4_clean_scored_20260805.jsonl
+      band: 0.05
+
+  # ── Stage 2: Repair (order matters, each only touches failures) ──
+  - stage: repair
+    name: value_grounding
+    module: plugins.repair.value_grounding
+
+  - stage: repair
+    name: execution_repair
+    module: plugins.repair.execution_repair
+    config:
+      max_repairs: 2
+
+  - stage: repair
+    name: join_repair
+    module: plugins.repair.join_repair
+
+  - stage: repair
+    name: column_grounding
+    module: plugins.repair.column_grounding
+
+  # ── Stage 3: Judge (candidate reselection) ──
+  - stage: judge
+    name: route_a_tournament
+    module: plugins.judge.route_a
+    config:
+      pool: runs/merged4model_n8_pool_scored_20260729.jsonl
+      top_k: 12
+      max_tokens: 1024
+
+  # ── Stage 4: Regeneration ──
+  - stage: regen
+    name: deep_regen
+    module: plugins.regen.deep_regen
+    config:
+      max_repairs: 3
+
+  # ── Stage 5: Finalize (deterministic rules) ──
+  # Add finalize plugins here (e.g., count_star_fix, over_join_prune)
