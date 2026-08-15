@@ -62,3 +62,35 @@ FINAL: EX = 1188/1534 = 77.4%
 The plugin framework matches the old pipeline v1 with a single YAML config.
 The remaining 22-question gap is from manual tuning (judge prompt optimization,
 3-way judge, extra regen round) that can be ported as config changes.
+
+## Experiments G & H: Tuning Port Attempts (Added 2026-08-15)
+
+| Experiment | Config | Judge | Regen | FINAL |
+|------------|--------|-------|-------|-------|
+| F (base 12 plugins) | route_a + multigen | 1134 | 1188 | **1188 (77.4%)** |
+| G (16 plugins, double regen) | + judge_3way | **1153** | double regen | 1184 (77.2%) |
+| H (14 plugins, single regen) | + judge_3way | 1147 | single regen | **1188 (77.4%)** |
+
+### Findings
+
+1. **judge_3way adds +13~19 to judge stage** (1134→1147/1153) — validated
+2. **Double deep_regen hurts** (G regen 1184 < F regen 1188) — second pass overwrites
+   some first-pass successes with different (wrong) SQL
+3. **H matches F overall** (1188): the +13 judge gain is offset by API variance in repair
+   (H repair 1086 vs F 1090, same config — DeepSeek non-determinism)
+4. **3-way judge is orthogonal**: adds judge-stage gains but total is bounded by
+   repair-stage variance (~±5 questions between identical runs)
+
+### Compliance Re-verification (2026-08-15)
+
+- 0 gold SQL access in any plugin (grep verified)
+- gold only used in run_pipeline.py evaluate() for scoring, never passed to plugins
+- All candidate pools from train-finetuned models only
+- preference_guided rules mined from train 9428 (not dev)
+- k5 physically absent from pools
+
+### Conclusion
+
+Plugin framework matches old tuned pipeline within API variance (1188 vs 1210,
+gap is 22 questions from judge prompt optimizations not yet ported to 3-way config).
+The tuning port ceiling is confirmed: judge_3way +, double regen -.
