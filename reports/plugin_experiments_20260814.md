@@ -94,3 +94,39 @@ The remaining 22-question gap is from manual tuning (judge prompt optimization,
 Plugin framework matches old tuned pipeline within API variance (1188 vs 1210,
 gap is 22 questions from judge prompt optimizations not yet ported to 3-way config).
 The tuning port ceiling is confirmed: judge_3way +, double regen -.
+
+## Experiment I: Hybrid (regen-as-candidate before judge) — NEGATIVE RESULT
+
+| Experiment | Architecture | FINAL |
+|------------|-------------|-------|
+| F | regen AFTER judge (direct replacement) | **1188 (77.4%)** |
+| H | + 3-way judge, regen after | **1188 (77.4%)** |
+| I | regen BEFORE judge (as candidate) | 1177 (76.7%) |
+
+### Why hybrid failed (-11 vs F)
+
+F: deep_regen runs after judge, directly replaces failing predictions (+54).
+I: deep_regen runs before judge, output competes with pool candidates.
+
+The judge's selection accuracy (~70%) filters out correct regen SQL.
+Direct replacement avoids this filter entirely.
+
+Lesson: **When you have a high-precision generator (regen +54), let it
+directly replace failures. Do NOT pass its output through an imperfect
+selector.** Judge-mediated selection only helps when candidates are of
+similar quality (pool candidates).
+
+### Experiment Summary (all)
+
+| Exp | Config | Judge | Regen | FINAL |
+|-----|--------|-------|-------|-------|
+| A | select only | — | — | 1068 (69.6%) |
+| B | +repair | — | — | 1085 (70.7%) |
+| C | +judge | 1135 | — | 1135 (74.0%) |
+| D | +judge +regen | 1120 | 1156 | 1156 (75.4%) |
+| F | 12 plugins | 1134 | 1188 | **1188 (77.4%)** |
+| G | +3way +double regen | 1153 | 1184 | 1184 (77.2%) |
+| H | +3way, single regen | 1147 | 1188 | **1188 (77.4%)** |
+| I | hybrid (regen before judge) | 1143 | 1177 | 1177 (76.7%) |
+
+Best compliant configuration: F or H at 1188 (77.4%).
