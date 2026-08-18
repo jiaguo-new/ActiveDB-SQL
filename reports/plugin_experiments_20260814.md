@@ -167,3 +167,22 @@ knob-tuning moves the needle. The binding constraint is candidate-pool
 coverage (oracle ceiling ~83%). Reaching 90% requires new candidate sources
 (GPU pool expansion, multi-API models, or RL-trained generators), not
 further pipeline tuning.
+
+## Experiment J: 2 New Error-Driven Plugins (2026-08-19)
+
+New plugins derived from the 346-error analysis:
+- aggregate_completion: add missing aggregation (targets 26 missing_agg, 46% recoverable)
+- over_join_pruner: remove redundant JOINs (targets 30 extra_tables, 40% recoverable)
+
+| Stage | F (12 plugins) | J (14 plugins) | Delta |
+|-------|---------------|----------------|-------|
+| repair | 1090 | 1093 | +3 |
+| judge | 1134 | 1143 | +9 |
+| regen | 1188 | 1187 | -1 (API variance) |
+| FINAL | 1188 | **1187** | -1 |
+
+The 2 new plugins produced +3 at repair stage (correct answers they own),
+but final EX is within noise (1187 vs 1188). The judge/regen stages have
+±5 question variance across identical runs, masking the small repair gain.
+
+Compliance: both plugins are gold-free (execution-guided only), verified.
