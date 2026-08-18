@@ -130,3 +130,40 @@ similar quality (pool candidates).
 | I | hybrid (regen before judge) | 1143 | 1177 | 1177 (76.7%) |
 
 Best compliant configuration: F or H at 1188 (77.4%).
+
+## Auto-Discovery Run (2026-08-18): 9 trials on 300-question fixed subset
+
+| Trial | Mutation | EX | Accepted |
+|-------|----------|-----|----------|
+| 0 | baseline | 227 (75.7%) | champion |
+| 1 | reorder repair (join first) | 220 (73.3%) | no |
+| 2 | knob exec_repair.max_repairs 2→1 | 222 (74.0%) | no |
+| 3 | reorder repair | 222 (74.0%) | no |
+| 4 | reorder repair | 224 (74.7%) | no |
+| 5 | knob (dup of 2) | 224 (74.7%) | no |
+| 6 | reorder repair | 223 (74.3%) | no |
+| 7 | knob route_a.max_tokens 1024→2048 | 226 (75.3%) | no |
+| 8 | drop value_grounding | 221 (73.7%) | no |
+
+Champion: baseline config (227/300). No mutation improved on the seed.
+
+### Findings
+
+1. Baseline config (exp F) is a local optimum for this mutation space:
+   repair ordering, max_repairs, and value_grounding presence are all
+   already well-tuned from manual experiments A-I.
+2. Closest challenger: route_a max_tokens 1024→2048 (226, -1). Within noise.
+3. Small-subset noise: the 60-question smoke test accepted a reorder that
+   the 300-question run rejected (50/60 vs 220/300). Fixed larger subsets
+   are essential for reliable acceptance decisions.
+4. Duplicate mutations occurred (trials 2 & 5) — engine should track tried
+   hashes (improvement item).
+
+### Implication for the 90% goal
+
+Configuration search is saturated: the plugin framework + current candidate
+pools + DeepSeek-V4-Flash sit at ~77.4% full-set EX, and no reordering or
+knob-tuning moves the needle. The binding constraint is candidate-pool
+coverage (oracle ceiling ~83%). Reaching 90% requires new candidate sources
+(GPU pool expansion, multi-API models, or RL-trained generators), not
+further pipeline tuning.
